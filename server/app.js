@@ -10,6 +10,8 @@ const express = require('express')
 const createServer = require('http-errors')
 const path = require('path')
 
+const employeeRoute = require("./routes/employee");
+
 // Create the Express app
 const app = express()
 
@@ -19,6 +21,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')))
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')))
 
+app.use("/api/employees", employeeRoute); // add the routes to the Express app
+
 // error handler for 404 errors
 app.use(function(req, res, next) {
   next(createServer(404)) // forward to error handler
@@ -26,7 +30,7 @@ app.use(function(req, res, next) {
 
 // error handler for all other errors
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500) // set response status code
+  res.status(err.status || 500) //  set response status code
 
   // send response to client in JSON format with a message and stack trace
   res.json({
