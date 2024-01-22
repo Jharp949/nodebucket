@@ -6,7 +6,7 @@ const { mongo } = require('../utils/mongo');
 
 /**
 * findEmployeeById
-* @openapi
+* @swagger
 * /api/employees/{empId}:
 *   get:
 *     tags:
