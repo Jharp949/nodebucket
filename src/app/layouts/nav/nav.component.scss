@@ -1,3 +1,7 @@
+.navbar {
+  background-color: #070707;
+}
+
 .navbar-brand {
   color: #BFAC9B;
   font-family: 'Caveat', cursive, sans-serif;
@@ -17,11 +21,22 @@ a {
 a:hover, .navbar-brand:hover {
   color: #ccc;
   transition: 1s;
-  box-shadow: 0 5px 25px 0 rgba(63, 45, 89, 1);
-  background: rgba(63, 45, 89, .3);
+  box-shadow: 0 10px 25px 0 rgba(63, 45, 89, 1);
+  background: rgba(63, 45, 89, .25);
   padding: 0;
 }
 
 .logo {
   margin-right: 2px;
+}
+
+.dropdown-menu {
+  background-color: #070707;
+}
+
+.dropdown-item {
+  color: #BFAC9B;
+  font-family: 'Shadows Into Light', cursive, sans-serif;
+  font-size: 1.5em;
+  background-color: #070707;
 }
