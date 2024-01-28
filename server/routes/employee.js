@@ -66,6 +66,56 @@ router.get('/:empId', (req, res, next) => {
 });
 
 // find all tasks by employee ID
+/**
+* findEmployeeById
+* @swagger
+* /api/employees/{empId}/tasks:
+*   get:
+*     tags:
+*       - Tasks
+*     description: Finds all tasks through Employee ID number
+*     summary: findTasksEmployeeById
+*     parameters:
+*       - name: empId
+*         in: path
+*         required: true
+*         description: Tasks document
+*         schema:
+*           type: string
+*     responses:
+*       '200':
+*         description: Tasks by employee ID
+*       '400':
+*         description: Employee ID must be a number
+*       '404':
+*         description: Employee ID not found
+*   post:
+*      tags:
+*        - Tasks
+*      description: Use to create a new task
+*      parameters:
+*        - name: empIdng serve
+*          in: path
+*          required: true
+*          type: integer
+*          format: int32
+*      requestBody:
+*        required: true
+*        content:
+*          application/json:
+*            schema:
+*              type: object
+*              properties:
+*                text:
+*                  type: string
+*      responses:
+*        '201':
+*          description: Task created
+*        '400':
+*          description: Invalid ID supplied
+*        '404':
+*          description: Employee not found
+*/
 router.get('/:empId/tasks', (req, res, next) => {
     try{
         let { empId } = req.params;

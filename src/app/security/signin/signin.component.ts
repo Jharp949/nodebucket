@@ -13,7 +13,7 @@ export interface SessionUser {
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
   errorMessage: string;

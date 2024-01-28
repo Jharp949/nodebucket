@@ -1,1 +1,130 @@
-<p>tasks works!</p>
+<div class="container-fluid pt-2" style="min-height: 600px">
+    <h1 class="text-center">My Tasks</h1>
+    <div class="row justify-content-center pt-4">
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage}}
+        </div></div>
+  
+        <div *ngIf="successMessage">
+          <div class="alert alert-success" role="alert">
+            {{successMessage}}
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Add new task form -->
+    <div class="row justify-content-center pt4">
+      <div class="col-sm-10 col-md-8 col-lg-6">
+        <form [formGroup]="newTaskForm" (ngSubmit)="addTask()">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" formControlName="text" placeholder="Add New Task">
+            <button class="btn btn-outline-secondary" type="submit" [disabled]="!newTaskForm.valid" id="btnAdd">Add</button>
+          </div>
+  
+          <!-- Validation required field -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('required')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Please enter task</strong>
+              <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+          </div>
+  
+            <!-- min length validation -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('minlength')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Task must be at least 3 characters long</strong>
+              <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+          </div>
+  
+          <!-- Max length validation -->
+          <div *ngIf="newTaskForm.controls['text'].touched && newTaskForm.controls['text'].hasError('maxlength')">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>The field must be at most 50 characters long</strong>
+              <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+    <!-- End new task form -->
+  
+    <!-- Todo and done container -->
+    <div class="row gy-2 justify-content-center">
+  
+      <!-- Start Add Task Column -->
+      <div class="col-sm-5 col-md-5 col-lg-3">
+        <h4 class="text-center">To Do</h4>
+  
+        <div class="p-3 border bg-light">
+          <div class="container">
+            <div *ngIf="todo.length === 0">
+              <div class="alert alert-info">
+                No tasks to do yet!
+              </div>
+            </div>
+            <div *ngFor="let item of todo" class="mt-2">
+              <div class="row border bg-white">
+                <div class="col-sm-6">
+                  <div class="card-body">
+                    {{ item.text }}
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                  <div class="card-body float-end">
+                    <button class="btn">
+                      <span class="material-icons">Delete</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <!-- End todo column -->
+  
+      <!-- Start done column -->
+      <div class="col-sm-5 col-md-5 col-lg-3">
+        <h4 class="text-center">Done</h4>
+  
+        <div class="p-3 border bg-light">
+          <div class="container">
+  
+            <div *ngIf="done.length === 0">
+              <div class="alert alert-info">
+                No tasks to do yet!
+              </div>
+            </div>
+            <div *ngFor="let item of done" class="mt-2">
+              <div class="row border bg-white">
+                <div class="col-sm-6">
+                  <div class="card-body">
+                    {{ item.text }}
+                  </div>
+                </div>
+  
+                <div class="col-sm-6">
+                  <div class="card-body float-end">
+                    <button class="btn">
+                      <span class="material-icons">Delete</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <!-- End Done Column -->
+  
+  
+    </div>
+  </div>
