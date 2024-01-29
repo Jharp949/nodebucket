@@ -1,0 +1,17 @@
+h1 {
+    margin: 100px 0 15px 0;
+    color: #BFAC9B;
+    font-family: 'Caveat', cursive, sans-serif;
+}
+
+span, address {
+    font-size: 1.3em;
+}
+
+h1, h2, h3, p, address {
+    color: #BFAC9B;
+}
+
+.logo-lg {
+    margin: 0 0 50px 0;
+}

@@ -1,0 +1,16 @@
+.card {
+    font-family: 'Yusei Magic', sans-serif;
+    color: #BFAC9B;
+    padding: 30px;
+    background: linear-gradient(0deg, rgba(110,101,166,1) 0%, rgba(63,45,89,1) 100%);
+}
+
+.btn {
+    color:#BFAC9B;
+    background-color: #262626;
+}
+
+.btn:hover {
+    color:#070707;
+    background-color: #73BFBF;
+}
