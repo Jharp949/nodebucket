@@ -67,92 +67,68 @@ router.get('/:empId', (req, res, next) => {
 
 // find all tasks by employee ID
 /**
-* findEmployeeById
-* @swagger
-* /api/employees/{empId}/tasks:
-*   get:
-*     tags:
-*       - Tasks
-*     description: Finds all tasks through Employee ID number
-*     summary: findTasksEmployeeById
-*     parameters:
-*       - name: empId
-*         in: path
-*         required: true
-*         description: Tasks document
-*         schema:
-*           type: string
-*     responses:
-*       '200':
-*         description: Tasks by employee ID
-*       '400':
-*         description: Employee ID must be a number
-*       '404':
-*         description: Employee ID not found
-*   post:
-*      tags:
-*        - Tasks
-*      description: Use to create a new task
-*      parameters:
-*        - name: empIdng serve
-*          in: path
-*          required: true
-*          type: integer
-*          format: int32
-*      requestBody:
-*        required: true
-*        content:
-*          application/json:
-*            schema:
-*              type: object
-*              properties:
-*                text:
-*                  type: string
-*      responses:
-*        '201':
-*          description: Task created
-*        '400':
-*          description: Invalid ID supplied
-*        '404':
-*          description: Employee not found
-*/
+ * @swagger
+ * /api/employees/{empId}/tasks:
+ *   get:
+ *     summary: Finds all tasks with employee ID
+ *     description: Retrieves tasks with employee ID
+ *     parameters:
+ *       - in: path
+ *         name: empId
+ *         required: true
+ *         description: Employee ID
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Successful response with the employee data.
+ *       '400':
+ *         description: Bad request.
+ *       '404':
+ *         description: Task not found.
+ *       '500':
+ *         description: Internal server error.
+ */
 router.get('/:empId/tasks', (req, res, next) => {
-    try{
-        let { empId } = req.params;
-        empId = parseInt(empId, 10); // ensure empId is a number
-
-        if (isNaN(empId)) {
-            const err = new Error('Employee ID must be a number');
-            err.status = 400;
-            console.log('err', err);
-            next(err);
-            return; // exit out of the if statement
-        }
-
-        mongo(async db => {
-            const employee = await db.collection('employees').findOne(
-                { empId },
-                { projection: { empId: 0, todo: 1, done: 1 } }
-            );
-        }, next);
-
-        console.log('employee: ', employee);
-
-        if (!employee) {
-            const err = new Error('Unable to find empId ' + empId);
-            err.status = 404;
-            console.log('err', err);
-            next(err);
-            return; // exit out of the if statement
-        }
-
-        res.send(employee); // send the tasks back to the client
-
-    } catch (err) {
-        console.error('err: ', err);
+    try {
+      let { empId } = req.params;
+      empId = parseInt(empId, 10); //parse the empId to an integer
+  
+      if (isNaN(empId)) {
+        const err = new Error('input must be a number');
+        err.status = 400;
+        console.error("err", err);
         next(err);
+        return;
+      }
+  
+      mongo(async db => {
+        //pulling task for employee
+        const tasks = await db.collection('employees').findOne(
+          { empId },
+          { projection: { empId: 1, todo: 1, done: 1}}
+        )
+  
+        console.log('tasks', tasks);
+  
+        //checks to see if error
+        if (!tasks) {
+          const err = new Error('Unable to find task with empId ' + empId);
+          err.status = 404;
+          console.error("err", err);
+          next(err);
+          return;
         }
-});
+        //if no error sends tasks
+        res.send(tasks);
+  
+      }, next)
+  
+    } catch (err) {
+      console.error("err", err);
+      next(err);
+    }
+  })
 
 // create task API
 // string: task
@@ -174,6 +150,38 @@ router.get('/:empId/tasks', (req, res, next) => {
     // 201 status code
     // return the task
 
+/**
+ * @swagger
+ * /api/employees/{empId}/tasks:
+ *   post:
+ *     summary: Creates a task for employee
+ *     description: Create a task for employee ID.
+ *     parameters:
+ *       - in: path
+ *         name: empId
+ *         required: true
+ *         description: Employee ID
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               text:
+ *                 type: string
+ *     responses:
+ *       '201':
+ *         description: Task created.
+ *       '400':
+ *         description: Bad request.
+ *       '404':
+ *         description: Task not found.
+ *       '500':
+ *         description: Internal server error.
+ */
 const taskSchema = {
     type: 'object',
     properties: {

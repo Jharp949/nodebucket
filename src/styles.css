@@ -4,6 +4,16 @@ html body {
     background: #070707;
 }
 
+.btn {
+    color:#BFAC9B;
+    background-color: #262626;
+}
+
+.btn:hover {
+    color:#070707;
+    background-color: #73BFBF;
+}
+
 .material-icons {
     color: #ccc;
 }

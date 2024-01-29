@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { authGuard } from './shared/auth.guard';
 
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: 'task-management',
         component: TasksComponent,
         canActivate: [authGuard]
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        title: 'Nodebucket: Contact'
       }
     ]
   },
