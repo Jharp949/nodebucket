@@ -1,0 +1,47 @@
+h1 {
+    margin: 85px 0;
+    font-family: 'Caveat', cursive, sans-serif;
+    font-size: 3em;
+}
+
+img {
+    max-width: 175px;
+    border-radius: 100%;
+    border: ridge 3px silver;
+    padding: 0;
+}
+
+.about-text {
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 1.2em;
+    background: linear-gradient(0deg, rgba(110,101,166,1) 0%, rgba(63,45,89,1) 100%);
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #3F2D59;
+    height: auto;
+    max-width: 700px;
+    margin: auto;
+}
+
+.rowena {
+    margin: 35px 0;
+}
+
+.rowena-text, .filius-text, .luna-text {
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 1.2em;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px #6E65A6;
+    max-width: 500px;
+    margin-left: 25px;
+    margin-bottom: 0;
+}
+
+.filius-image, .luna-image {
+    margin: 35px 0;
+}
+
+.members {
+    margin-bottom: 35px;
+}

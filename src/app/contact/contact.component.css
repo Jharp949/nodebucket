@@ -8,8 +8,8 @@ span, address {
     font-size: 1.3em;
 }
 
-h1, h2, h3, p, address {
-    color: #BFAC9B;
+h3 {
+    color: #6E65A6;
 }
 
 .logo-lg {
