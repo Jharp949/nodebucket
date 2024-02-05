@@ -1,7 +1,7 @@
 /**
- * Title: app.module.ts
- * Author: Professor Krasso
- * Date: 8/5/23
+ * Title: app-module.ts
+ * Author: James Harper
+ * Date: 1/31/24
  */
 
 // imports statements
@@ -20,6 +20,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

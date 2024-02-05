@@ -1,19 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html body {
-    background: #070707;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.btn {
+html body {
+    background-color: #070707;
+    color: #BFAC9B;
+}
+
+.btn, .btn-secondary {
     color:#BFAC9B;
     background-color: #262626;
 }
 
-.btn:hover {
+.btn:hover, .btn-secondary:hover {
     color:#070707;
     background-color: #73BFBF;
 }
 
 .material-icons {
     color: #ccc;
+}
+
+.card-body {
+    font: 'Zeyada', sans-serif;
+    background-color: linear-gradient(0deg, rgba(110,101,166,1) 0%, rgba(63,45,89,1) 100%);
+    color: #BFAC9B;
 }

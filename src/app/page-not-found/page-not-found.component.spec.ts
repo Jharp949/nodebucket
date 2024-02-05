@@ -1,3 +1,9 @@
+/**
+ * Title: page-not-found.component.spec.ts
+ * Author: James Harper
+ * Date: 1/31/24
+ */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PageNotFoundComponent } from './page-not-found.component';

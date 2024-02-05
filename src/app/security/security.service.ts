@@ -1,3 +1,9 @@
+/**
+ * Title: security.service.ts
+ * Author: James Harper
+ * Date: 1/31/24
+ */
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 

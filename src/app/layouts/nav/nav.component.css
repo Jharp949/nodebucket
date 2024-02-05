@@ -10,7 +10,6 @@
 
 a {
   color: #BFAC9B;
-  text-decoration: none;
   transition: 1s;
   font-family: 'Shadows Into Light', cursive, sans-serif;
   font-size: 1.5em;
@@ -22,7 +21,7 @@ a:hover, .navbar-brand:hover {
   color: #ccc;
   transition: 1s;
   box-shadow: 0 10px 25px 0 rgba(63, 45, 89, 1);
-  background: rgba(63, 45, 89, .1);
+  background-color: rgba(63, 45, 89, .1);
   padding: 0;
 }
 

@@ -1,7 +1,16 @@
+h2 {
+    font-size: 2em;
+}
+
+.card-title {
+    font-family: 'Caveat', sans-serif;
+    color: #BFAC9B;
+}
+
 .card {
     font-family: 'Yusei Magic', sans-serif;
     color: #BFAC9B;
-    padding: 30px;
+    box-shadow: 0px 0px 10px #3F2D59;
     background: linear-gradient(0deg, rgba(110,101,166,1) 0%, rgba(63,45,89,1) 100%);
 }
 
@@ -13,4 +22,14 @@
 .btn:hover {
     color:#070707;
     background-color: #73BFBF;
+}
+
+.return {
+    color: #CCC;
+    text-decoration: none;
+}
+
+.return:hover {
+    color: #73BFBF;
+    text-decoration: underline;
 }

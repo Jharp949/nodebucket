@@ -1,0 +1,29 @@
+.container-fluid {
+    background-image: url("../../assets/image/raven-outline.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.four-oh-four {
+    padding: 300px 300px;
+}
+
+h1 {
+    font-family: 'Caveat', cursive, sans-serif;
+    font-size: 3em;
+}
+
+p {
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 1.2em; 
+}
+
+.return {
+    color: #CCC;
+    text-decoration: none;
+}
+
+.return:hover {
+    color: #73BFBF;
+    text-decoration: underline;
+}

@@ -1,7 +1,7 @@
 /**
  * Title: security.component.ts
- * Author: Professor Krasso
- * Date: 8/5/23
+ * Author: James Harper
+ * Date: 1/31/24
  */
 
 // imports statements
