@@ -292,6 +292,59 @@ router.post('/:empId/tasks', (req, res, next) => {
    }
 });
 
+/**
+ * updateTask
+ * @swagger
+ * /api/employees/{empId}/tasks:
+ *   put:
+ *     summary: Update tasks for an employee
+ *     description: Update task
+ *     parameters:
+ *       - in: path
+ *         name: empId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Employee ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - todo
+ *               - done
+ *             properties:
+ *               todo:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     text:
+ *                       type: string
+ *               done:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     text:
+ *                       type: string
+ *     responses:
+ *       '204':
+ *         description: Tasks updated successfully
+ *       '400':
+ *         description: Bad Request
+ *       '404':
+ *         description: Employee not found
+ *       '500':
+ *         description: Internal Server Error
+ */
+
 router.put('/:empId/tasks', (req, res, next) => {
     
     try {
@@ -352,6 +405,37 @@ router.put('/:empId/tasks', (req, res, next) => {
 
     }
 });
+
+/**
+  * deleteTask
+  * @swagger
+  * /api/employees/{empId}/tasks/{taskId}:
+  *   delete:
+  *     summary: Delete a task for an employee
+  *     description: Delete Task
+  *     parameters:
+  *       - in: path
+  *         name: empId
+  *         required: true
+  *         schema:
+  *           type: integer
+  *         description: Employee ID
+  *       - in: path
+  *         name: taskId
+  *         required: true
+  *         schema:
+  *           type: string
+  *         description: Task ID
+  *     responses:
+  *       '204':
+  *         description: Task deleted successfully
+  *       '400':
+  *         description: Bad Request
+  *       '404':
+  *         description: Employee or task not found
+  *       '500':
+  *         description: Internal Server Error
+  */
 
 router.delete('/:empId/tasks/:taskId', (req, res, next) => {
     try {

@@ -1,3 +1,9 @@
+/**
+ * Title: signin.component.ts
+ * Author: James Harper
+ * Date: 1/31/24
+ */
+
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
