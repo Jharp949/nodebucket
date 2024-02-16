@@ -1,6 +1,6 @@
 /*
 * Project Name: config.js
-* Authors: Laurel Condon, James Harper, Danielle Taplin
+* Authors: James Harper
 * Date: 2/12/2024
 */
 
