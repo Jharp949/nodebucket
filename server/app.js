@@ -1,8 +1,9 @@
-/**
- * Title: app.js
- * Author: Professor Krasso
- * Date: 8/5/2023
- */
+/*
+* Project Name: config.js
+* Authors: Laurel Condon, James Harper, Danielle Taplin
+* Date: 2/12/2024
+*/
+
 'use strict'
 
 // Require statements
